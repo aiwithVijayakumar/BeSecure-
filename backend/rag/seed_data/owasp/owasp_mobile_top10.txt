@@ -1,0 +1,175 @@
+OWASP Mobile Top 10 - Security Knowledge Base
+
+=== M1: Improper Credential Usage ===
+Description: Improper use of credentials such as hardcoded credentials, insecure credential storage, or sending credentials over insecure channels.
+Test Cases:
+- Check for hardcoded usernames, passwords, API keys in source code
+- Check for credentials stored in SharedPreferences without encryption
+- Check if credentials are transmitted over HTTP instead of HTTPS
+- Check for credentials in log files
+- Check for credentials in configuration files bundled in APK
+
+Mitigation:
+- Use Android Keystore for secure credential storage
+- Never hardcode credentials in source code
+- Use EncryptedSharedPreferences for sensitive data
+- Implement certificate pinning for network calls
+- Use OAuth2/OIDC for authentication flows
+
+CWE References: CWE-798, CWE-259, CWE-312, CWE-321
+
+=== M2: Inadequate Supply Chain Security ===
+Description: Risks arising from third-party libraries, SDKs, or components with vulnerabilities.
+Test Cases:
+- Audit third-party libraries for known CVEs
+- Check for outdated dependencies
+- Verify integrity of downloaded packages
+- Review permissions requested by third-party SDKs
+
+Mitigation:
+- Maintain a software bill of materials (SBOM)
+- Regularly update dependencies
+- Use dependency scanning tools (OWASP Dependency-Check)
+- Prefer well-maintained, audited libraries
+
+=== M3: Insecure Authentication and Authorization ===
+Description: Weak authentication mechanisms, missing authorization checks, or improper session management.
+Test Cases:
+- Test for authentication bypass vulnerabilities
+- Check for missing authorization on sensitive endpoints
+- Test session token entropy and expiry
+- Check for insecure direct object references
+- Verify MFA implementation
+
+Mitigation:
+- Implement strong authentication (biometric + PIN fallback)
+- Use role-based access control (RBAC)
+- Enforce proper session timeouts
+- Validate all authorization server-side, never client-side
+- Implement MFA for sensitive operations
+
+CWE References: CWE-287, CWE-306, CWE-863
+
+=== M4: Insufficient Input/Output Validation ===
+Description: Failure to validate, sanitize, or encode input/output data leading to injection attacks.
+Test Cases:
+- Test for SQL injection via content providers
+- Test for JavaScript injection via WebView
+- Check for path traversal vulnerabilities
+- Test for XML/JSON injection
+- Check for intent injection
+
+Mitigation:
+- Validate all input server-side
+- Use parameterized queries for SQL
+- Sanitize data before passing to WebView
+- Use allowlists for input validation
+- Encode all output appropriately
+
+CWE References: CWE-89, CWE-79, CWE-22, CWE-116
+
+=== M5: Insecure Communication ===
+Description: Transmission of sensitive data over insecure channels or with improper TLS configuration.
+Test Cases:
+- Check for HTTP usage (cleartext traffic)
+- Verify TLS certificate validation is not bypassed
+- Check for SSL pinning implementation
+- Test for weak cipher suites
+- Check network security configuration
+
+Mitigation:
+- Use HTTPS for all network communication
+- Implement certificate pinning using OkHttp CertificatePinner
+- Configure Network Security Config to deny cleartext
+- Use TLS 1.2+ with strong cipher suites
+- Never override onReceivedSslError to proceed
+
+CWE References: CWE-295, CWE-319, CWE-326
+
+=== M6: Inadequate Privacy Controls ===
+Description: Improper handling of personal data, violating user privacy expectations.
+Test Cases:
+- Check if PII is logged
+- Check if PII is stored insecurely
+- Review data collection and retention policies
+- Check for excessive data collection
+
+Mitigation:
+- Minimize data collection (data minimization principle)
+- Encrypt PII at rest
+- Implement proper data retention policies
+- Never log PII or sensitive user data
+- Request only necessary permissions
+
+=== M7: Insufficient Binary Protections ===
+Description: Lack of obfuscation, anti-tampering, or anti-debugging protections.
+Test Cases:
+- Check if debuggable flag is true in manifest
+- Check for anti-debugging mechanisms
+- Test for root detection
+- Check for emulator detection
+- Verify code obfuscation
+
+Mitigation:
+- Disable debug flag in production builds
+- Implement root/jailbreak detection
+- Use ProGuard/R8 for code obfuscation
+- Implement anti-tampering checks
+- Use integrity verification
+
+CWE References: CWE-489, CWE-311
+
+=== M8: Security Misconfiguration ===
+Description: Insecure default configurations, exposed components, or improper permissions.
+Test Cases:
+- Check exported activities, services, receivers, providers
+- Check for backup enabled
+- Review AndroidManifest permissions
+- Check for overly permissive file permissions
+- Test exposed content providers
+
+Mitigation:
+- Set exported=false for all components not needing external access
+- Disable backup unless required
+- Apply principle of least privilege for permissions
+- Require permissions on exported components
+- Review and restrict content provider access
+
+CWE References: CWE-732, CWE-16
+
+=== M9: Insecure Data Storage ===
+Description: Sensitive data stored insecurely on device storage.
+Test Cases:
+- Check SharedPreferences for sensitive data in plain text
+- Check SQLite databases for unencrypted sensitive data
+- Check external storage usage
+- Check for sensitive data in logs
+- Check for sensitive data in app cache
+
+Mitigation:
+- Use EncryptedSharedPreferences
+- Use SQLCipher for encrypted SQLite
+- Never store sensitive data on external storage
+- Use Android Keystore for key management
+- Clear sensitive data from memory when no longer needed
+
+CWE References: CWE-312, CWE-200, CWE-922
+
+=== M10: Insufficient Cryptography ===
+Description: Use of weak or broken cryptographic algorithms, improper key management.
+Test Cases:
+- Check for use of MD5 or SHA-1 for security purposes
+- Check for use of DES, RC4, or ECB mode
+- Check for hardcoded encryption keys
+- Check for insecure random number generation
+- Verify proper IV usage
+
+Mitigation:
+- Use AES-256-GCM for symmetric encryption
+- Use SHA-256 or SHA-3 for hashing
+- Use SecureRandom for random number generation
+- Store keys in Android Keystore, never in code
+- Use authenticated encryption (AEAD)
+- Generate unique IVs for each encryption operation
+
+CWE References: CWE-327, CWE-338, CWE-330

@@ -1,0 +1,24 @@
+.container { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+.title { font-size: 0.875rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.gauge { position: relative; }
+.overlay {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.score { font-size: 2.5rem; font-weight: 800; line-height: 1; }
+.outOf { font-size: 0.85rem; color: var(--text-muted); }
+.label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.breakdown { display: flex; flex-direction: column; gap: 10px; }
+.metric { display: flex; flex-direction: column; gap: 5px; }
+.metricHeader { display: flex; justify-content: space-between; font-size: 0.8rem; }
+.metricHeader span:first-child { color: var(--text-secondary); }
+.metricHeader span:last-child { font-weight: 700; }
+
+.rationale { font-size: 0.78rem; color: var(--text-muted); line-height: 1.6; }

@@ -1,0 +1,90 @@
+{
+  "scan_id": "9f24b3a8-0832-4326-8de8-b5ae86298872",
+  "status": "completed",
+  "filename": "feature-transhipment-unloading.zip",
+  "app_name": "feature-transhipment-unloading",
+  "report": {
+    "scan_id": "9f24b3a8-0832-4326-8de8-b5ae86298872",
+    "app_name": "unknown",
+    "input_type": "source_code",
+    "status": "completed",
+    "created_at": "2026-04-22T09:36:37.237929",
+    "completed_at": "2026-04-22T09:36:37.237943",
+    "metadata": {
+      "app_name": "unknown",
+      "package_name": "unknown",
+      "version_name": null,
+      "version_code": null,
+      "target_sdk": null,
+      "min_sdk": null,
+      "permissions": [],
+      "exported_activities": [],
+      "exported_services": [],
+      "exported_receivers": [],
+      "exported_providers": [],
+      "uses_cleartext_traffic": false,
+      "debuggable": false,
+      "backup_enabled": true
+    },
+    "risk_score": {
+      "overall": "Low",
+      "score": 2.4,
+      "exploitability": 0.0,
+      "impact": 4.0,
+      "business_risk": 3.0,
+      "rationale": "Detected 1 total findings: 0 Critical, 0 High, 1 Medium, 0 Low."
+    },
+    "summary": "Security analysis of 'unknown' identified 1 vulnerabilities (0 Critical, 0 High, 1 Medium, 0 Low). The overall risk rating is Severity.LOW with a score of 2.4/10. Detected 1 total findings: 0 Critical, 0 High, 1 Medium, 0 Low.",
+    "vulnerabilities": [
+      {
+        "id": "9243879b-1ce0-4bdd-b641-d1a5b044ca9f",
+        "title": "Android Backup Enabled (Manifest)",
+        "severity": "Medium",
+        "owasp_category": "M9 - Insecure Data Storage",
+        "cwe_id": "CWE-312",
+        "description": "allowBackup=true allows ADB backup of app data without device encryption.",
+        "evidence": "android:allowBackup=\"true\"",
+        "file_path": null,
+        "line_number": null,
+        "attack_vector": null,
+        "impact": null,
+        "fix": "Set android:allowBackup=\"false\" unless backup is required. Use encrypted backup rules.",
+        "code_fix": null,
+        "sdlc_phase": "deployment",
+        "references": []
+      }
+    ],
+    "vuln_summary": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 0,
+      "info": 0,
+      "total": 1
+    },
+    "threat_model": {
+      "attack_surface": [],
+      "scenarios": [],
+      "data_exposure_risks": []
+    },
+    "developer_checklist": {
+      "items": [
+        "[Severity.MEDIUM] Set android:allowBackup=\"false\" unless backup is required. Use encrypted backup rules."
+      ]
+    },
+    "owasp_compliance": {
+      "M1 - Improper Credential Usage": "PASS",
+      "M2 - Inadequate Supply Chain Security": "PASS",
+      "M3 - Insecure Authentication/Authorization": "PASS",
+      "M4 - Insufficient Input/Output Validation": "PASS",
+      "M5 - Insecure Communication": "PASS",
+      "M6 - Inadequate Privacy Controls": "PASS",
+      "M7 - Insufficient Binary Protections": "PASS",
+      "M8 - Security Misconfiguration": "PASS",
+      "M9 - Insecure Data Storage": "FAIL",
+      "M10 - Insufficient Cryptography": "PASS"
+    }
+  },
+  "error": null,
+  "current_step": "completed"
+}

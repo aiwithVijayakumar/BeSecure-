@@ -1,0 +1,101 @@
+.card { padding: 0; overflow: hidden; cursor: pointer; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  gap: 12px;
+}
+.header:hover { background: var(--bg-card-hover); }
+
+.left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+.right { display: flex; align-items: center; gap: 10px; color: var(--text-muted); flex-shrink: 0; }
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cwe {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.owasp {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.body {
+  padding: 4px 18px 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--accent);
+  padding: 8px 0 0;
+}
+.location code { font-size: 0.8rem; }
+.line { color: var(--text-muted); }
+
+.desc { font-size: 0.875rem; }
+
+.section { display: flex; flex-direction: column; gap: 6px; }
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.subLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.fixBox {
+  background: var(--low-bg);
+  border: 1px solid rgba(46, 213, 115, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fixBox p { font-size: 0.875rem; color: var(--low); }
+
+.explanation {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.sdlc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+}
+.sdlc strong { color: var(--accent); }
