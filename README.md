@@ -1,7 +1,8 @@
 # BeSecure - AI-Powered Android Security Analysis System
 
 <p align="center">
-  <img src="docs/banner.png" alt="BeSecure Banner" width="600"/>
+  <img width="960" height="455" alt="image" src="https://github.com/user-attachments/assets/3cdfd9b3-eecd-442a-a8c4-2c9e1f398957" />
+
 </p>
 
 A production-grade AI security intelligence engine that combines **static analysis tools** (JADX, APKTool, MobSF) with a **multi-agent LangGraph pipeline** and **Ollama LLMs** to automatically audit Android APKs and source code against OWASP Mobile Top 10, Secure SDLC, and ISO 27001.
